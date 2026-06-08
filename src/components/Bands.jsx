@@ -11,14 +11,12 @@ export function TrustBand() {
     <div className="trust">
       <div className="container">
         <div className="trust__inner">
-          <span>{t.trust.label}</span>
-          <strong>MTN Mobile Money</strong>
-          <span style={{ opacity: 0.3 }}>·</span>
-          <strong>Orange Money</strong>
-          <span style={{ opacity: 0.3 }}>·</span>
-          <strong>Express Union</strong>
-          <span style={{ opacity: 0.3 }}>·</span>
-          <strong>Afriland First Bank</strong>
+          <span className="trust__label">{t.trust.label}</span>
+          <img
+            src="/assets/logo_saim_officiel.png"
+            alt="Saïm AI"
+            className="trust__logo"
+          />
         </div>
       </div>
     </div>
