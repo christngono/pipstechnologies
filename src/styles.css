@@ -75,9 +75,8 @@
 
 .splash__inner {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 36px;
+  justify-content: center;
 }
 
 /* Wrapper : pop-in au départ */
@@ -85,42 +84,36 @@
   animation: splash-pop 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 @keyframes splash-pop {
-  from { opacity: 0; transform: scale(0.5); }
+  from { opacity: 0; transform: scale(0.4); }
   to   { opacity: 1; transform: scale(1); }
 }
 
-/* Image : battement de cœur (lub-dub) en boucle après le pop */
-.splash__logo {
-  width: 170px;
-  height: auto;
-  display: block;
+/* Cercle blanc — conserve le fond blanc du logo, clips les coins rectangulaires */
+.splash__logo-circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: white;
+  display: grid;
+  place-items: center;
   animation: heartbeat 0.9s ease-in-out 0.8s infinite;
 }
-@keyframes heartbeat {
-  0%   { transform: scale(1);    }
-  12%  { transform: scale(1.18); }  /* premier battement */
-  24%  { transform: scale(1);    }
-  36%  { transform: scale(1.1);  }  /* deuxième battement (plus doux) */
-  50%  { transform: scale(1);    }
-  100% { transform: scale(1);    }  /* pause */
+
+.splash__logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
-.splash__bar {
-  width: 130px;
-  height: 3px;
-  background: rgba(255,255,255,0.15);
-  border-radius: 99px;
-  overflow: hidden;
-}
-.splash__progress {
-  height: 100%;
-  background: var(--orange);
-  border-radius: 99px;
-  animation: splash-fill 1.9s ease forwards;
-}
-@keyframes splash-fill {
-  from { width: 0; }
-  to   { width: 100%; }
+@keyframes heartbeat {
+  0%   { transform: scale(1);    }
+  12%  { transform: scale(1.18); }
+  24%  { transform: scale(1);    }
+  36%  { transform: scale(1.1);  }
+  50%  { transform: scale(1);    }
+  100% { transform: scale(1);    }
 }
 
 html {
