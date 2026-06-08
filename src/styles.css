@@ -59,30 +59,54 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.55s ease, transform 0.55s ease;
+  /* clip-path initial : cercle couvrant tout l'écran */
+  clip-path: circle(150% at 50% 50%);
 }
-.splash--out {
-  opacity: 0;
-  transform: scale(1.04);
+
+/* Disparition en iris (fermeture circulaire depuis le centre) */
+.splash--closing {
+  animation: iris-close 0.75s cubic-bezier(0.55, 0, 1, 0.45) forwards;
   pointer-events: none;
 }
+@keyframes iris-close {
+  from { clip-path: circle(150% at 50% 50%); }
+  to   { clip-path: circle(0%   at 50% 50%); }
+}
+
 .splash__inner {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 32px;
+  gap: 36px;
 }
-.splash__logo {
-  width: 160px;
-  height: auto;
-  animation: splash-pop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+
+/* Wrapper : pop-in au départ */
+.splash__logo-wrap {
+  animation: splash-pop 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 @keyframes splash-pop {
-  from { opacity: 0; transform: scale(0.6); }
+  from { opacity: 0; transform: scale(0.5); }
   to   { opacity: 1; transform: scale(1); }
 }
+
+/* Image : battement de cœur (lub-dub) en boucle après le pop */
+.splash__logo {
+  width: 170px;
+  height: auto;
+  display: block;
+  animation: heartbeat 0.9s ease-in-out 0.8s infinite;
+}
+@keyframes heartbeat {
+  0%   { transform: scale(1);    }
+  12%  { transform: scale(1.18); }  /* premier battement */
+  24%  { transform: scale(1);    }
+  36%  { transform: scale(1.1);  }  /* deuxième battement (plus doux) */
+  50%  { transform: scale(1);    }
+  100% { transform: scale(1);    }  /* pause */
+}
+
 .splash__bar {
-  width: 120px;
+  width: 130px;
   height: 3px;
   background: rgba(255,255,255,0.15);
   border-radius: 99px;
@@ -92,7 +116,7 @@
   height: 100%;
   background: var(--orange);
   border-radius: 99px;
-  animation: splash-fill 1.6s ease forwards;
+  animation: splash-fill 1.9s ease forwards;
 }
 @keyframes splash-fill {
   from { width: 0; }

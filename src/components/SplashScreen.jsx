@@ -1,21 +1,24 @@
 import React, { useState, useEffect } from 'react';
 
 export default function SplashScreen() {
-  const [visible, setVisible] = useState(true);
-  const [hiding, setHiding] = useState(false);
+  const [phase, setPhase] = useState('visible'); // 'visible' | 'closing'
+  const [mounted, setMounted] = useState(true);
 
   useEffect(() => {
-    const fadeTimer = setTimeout(() => setHiding(true), 1800);
-    const removeTimer = setTimeout(() => setVisible(false), 2400);
-    return () => { clearTimeout(fadeTimer); clearTimeout(removeTimer); };
+    const closeTimer  = setTimeout(() => setPhase('closing'), 2200);
+    const removeTimer = setTimeout(() => setMounted(false), 3000);
+    return () => { clearTimeout(closeTimer); clearTimeout(removeTimer); };
   }, []);
 
-  if (!visible) return null;
+  if (!mounted) return null;
 
   return (
-    <div className={"splash" + (hiding ? " splash--out" : "")}>
+    <div className={"splash" + (phase === 'closing' ? " splash--closing" : "")}>
       <div className="splash__inner">
-        <img src="/assets/pips_logo_tech.png" alt="Pip's Technologies" className="splash__logo" />
+        {/* Wrapper pour le pop-in, image pour le heartbeat */}
+        <div className="splash__logo-wrap">
+          <img src="/assets/pips_logo_tech.png" alt="Pip's Technologies" className="splash__logo" />
+        </div>
         <div className="splash__bar">
           <div className="splash__progress" />
         </div>
