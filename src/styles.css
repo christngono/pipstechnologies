@@ -59,18 +59,37 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* clip-path initial : cercle couvrant tout l'écran */
+  clip-path: circle(0% at 50% 50%); /* départ: invisible */
+}
+
+/* Phase 1 — bulbe gonfle depuis le centre (goutte d'eau qui s'étale) */
+.splash--entering {
+  animation: bubble-expand 0.85s cubic-bezier(0.34, 1.3, 0.64, 1) forwards;
+}
+@keyframes bubble-expand {
+  0%   { clip-path: circle(0%   at 50% 50%); }
+  55%  { clip-path: circle(58%  at 50% 50%); }  /* légère surtension */
+  72%  { clip-path: circle(52%  at 50% 50%); }  /* tension de surface */
+  85%  { clip-path: circle(56%  at 50% 50%); }  /* oscillation */
+  100% { clip-path: circle(150% at 50% 50%); }  /* plein écran */
+}
+
+/* Phase 2 — plein écran stable (heartbeat actif) */
+.splash--visible {
   clip-path: circle(150% at 50% 50%);
 }
 
-/* Disparition en iris (fermeture circulaire depuis le centre) */
+/* Phase 3 — bulbe se rétracte vers le centre (bulle qui éclate) */
 .splash--closing {
-  animation: iris-close 0.75s cubic-bezier(0.55, 0, 1, 0.45) forwards;
+  animation: bubble-collapse 0.85s cubic-bezier(0.55, 0, 0.8, 0.4) forwards;
   pointer-events: none;
 }
-@keyframes iris-close {
-  from { clip-path: circle(150% at 50% 50%); }
-  to   { clip-path: circle(0%   at 50% 50%); }
+@keyframes bubble-collapse {
+  0%   { clip-path: circle(150% at 50% 50%); }
+  25%  { clip-path: circle(58%  at 50% 50%); }  /* chute rapide */
+  45%  { clip-path: circle(52%  at 50% 50%); }  /* rebond tension */
+  65%  { clip-path: circle(56%  at 50% 50%); }  /* oscillation finale */
+  100% { clip-path: circle(0%   at 50% 50%); }  /* disparu */
 }
 
 .splash__inner {
@@ -81,14 +100,14 @@
 
 /* Wrapper : pop-in au départ */
 .splash__logo-wrap {
-  animation: splash-pop 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation: splash-pop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s both;
 }
 @keyframes splash-pop {
   from { opacity: 0; transform: scale(0.4); }
   to   { opacity: 1; transform: scale(1); }
 }
 
-/* Cercle blanc — conserve le fond blanc du logo, clips les coins rectangulaires */
+/* Cercle blanc — conserve le fond blanc du logo */
 .splash__logo-circle {
   width: 200px;
   height: 200px;
@@ -97,7 +116,7 @@
   background: white;
   display: grid;
   place-items: center;
-  animation: heartbeat 0.9s ease-in-out 0.8s infinite;
+  animation: heartbeat 0.9s ease-in-out 1.2s infinite;
 }
 
 .splash__logo {

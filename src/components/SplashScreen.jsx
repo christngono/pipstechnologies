@@ -1,19 +1,23 @@
 import React, { useState, useEffect } from 'react';
 
 export default function SplashScreen() {
-  const [phase, setPhase] = useState('visible');
+  const [phase, setPhase] = useState('entering'); // 'entering' | 'visible' | 'closing'
   const [mounted, setMounted] = useState(true);
 
   useEffect(() => {
-    const closeTimer  = setTimeout(() => setPhase('closing'), 2200);
-    const removeTimer = setTimeout(() => setMounted(false), 3000);
-    return () => { clearTimeout(closeTimer); clearTimeout(removeTimer); };
+    // Fin de l'entrée → visible avec heartbeat
+    const visibleTimer = setTimeout(() => setPhase('visible'), 900);
+    // Début de la fermeture
+    const closeTimer   = setTimeout(() => setPhase('closing'), 2600);
+    // Retrait du DOM
+    const removeTimer  = setTimeout(() => setMounted(false), 3500);
+    return () => { clearTimeout(visibleTimer); clearTimeout(closeTimer); clearTimeout(removeTimer); };
   }, []);
 
   if (!mounted) return null;
 
   return (
-    <div className={"splash" + (phase === 'closing' ? " splash--closing" : "")}>
+    <div className={"splash splash--" + phase}>
       <div className="splash__inner">
         <div className="splash__logo-wrap">
           <div className="splash__logo-circle">
