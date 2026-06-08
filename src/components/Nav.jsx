@@ -18,6 +18,12 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
+
   const items = [
     { href: "#about", label: t.nav.about },
     { href: "#service", label: t.nav.service },
@@ -27,56 +33,87 @@ export default function Nav() {
     { href: "#contact", label: t.nav.contact },
   ];
 
-  return (
-    <nav className={"nav" + (scrolled ? " scrolled" : "")}>
-      <div className="nav__inner">
-        <a href="#top" className="nav__brand" aria-label="Pips Technologies">
-          <span className="nav__brand-logo"><IcLogo size={44} /></span>
-          <span className="nav__brand-text">
-            <span className="a">Pip's</span>
-            <span className="b">TECHNOLOGIES</span>
-          </span>
-        </a>
+  const close = () => setMobileOpen(false);
 
-        <ul className="nav__links" aria-label="Primary">
-          {items.map((it) => (
-            <li key={it.href}><a href={it.href}>{it.label}</a></li>
+  return (
+    <>
+      <nav className={"nav" + (scrolled ? " scrolled" : "")}>
+        <div className="nav__inner">
+          <a href="#top" className="nav__brand" aria-label="Pips Technologies">
+            <span className="nav__brand-logo"><IcLogo size={44} /></span>
+            <span className="nav__brand-text">
+              <span className="a">Pip's</span>
+              <span className="b">TECHNOLOGIES</span>
+            </span>
+          </a>
+
+          <ul className="nav__links" aria-label="Primary">
+            {items.map((it) => (
+              <li key={it.href}><a href={it.href}>{it.label}</a></li>
+            ))}
+          </ul>
+
+          <div className="nav__cta">
+            <div className="lang" role="group" aria-label="Language">
+              <button onClick={() => setLang("fr")} className={lang === "fr" ? "active" : ""}>FR</button>
+              <button onClick={() => setLang("en")} className={lang === "en" ? "active" : ""}>EN</button>
+            </div>
+            <a href="#download" className="btn btn--dark btn--sm">
+              {t.nav.cta} <IcArrowRight size={16} />
+            </a>
+          </div>
+
+          {/* Burger — toujours en dernier, poussé à droite */}
+          <button
+            className="nav__burger"
+            aria-label={mobileOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            aria-expanded={mobileOpen}
+            onClick={() => setMobileOpen((v) => !v)}
+          >
+            <IcMenu size={22} />
+          </button>
+        </div>
+      </nav>
+
+      {/* Fullscreen mobile overlay */}
+      <div className={"nav__mobile" + (mobileOpen ? " nav__mobile--open" : "")} aria-hidden={!mobileOpen}>
+        <div className="nav__mobile-head">
+          <a href="#top" className="nav__brand nav__brand--light" onClick={close} aria-label="Pips Technologies">
+            <span className="nav__brand-logo"><IcLogo size={40} /></span>
+            <span className="nav__brand-text">
+              <span className="a">Pip's</span>
+              <span className="b">TECHNOLOGIES</span>
+            </span>
+          </a>
+
+          {/* Croix pour fermer */}
+          <button
+            className="nav__mobile-close"
+            onClick={close}
+            aria-label="Fermer le menu"
+          >
+            <IcClose size={24} />
+          </button>
+        </div>
+
+        <ul className="nav__mobile-links">
+          {items.map((it, i) => (
+            <li key={it.href} style={{ "--i": i }}>
+              <a href={it.href} onClick={close}>{it.label}</a>
+            </li>
           ))}
         </ul>
 
-        <div className="nav__cta">
-          <div className="lang" role="group" aria-label="Language">
+        <div className="nav__mobile-footer">
+          <div className="lang lang--light" role="group" aria-label="Language">
             <button onClick={() => setLang("fr")} className={lang === "fr" ? "active" : ""}>FR</button>
             <button onClick={() => setLang("en")} className={lang === "en" ? "active" : ""}>EN</button>
           </div>
-          <a href="#download" className="btn btn--dark btn--sm">
-            {t.nav.cta} <IcArrowRight size={16} />
+          <a href="#download" onClick={close} className="btn btn--primary btn--lg nav__mobile-cta">
+            {t.nav.cta} <IcArrowRight size={18} />
           </a>
-          <button className="nav__burger" aria-label="Menu" onClick={() => setMobileOpen((v) => !v)}>
-            {mobileOpen ? <IcClose size={20} /> : <IcMenu size={20} />}
-          </button>
         </div>
       </div>
-
-      {/* Mobile flyout */}
-      {mobileOpen && (
-        <div className="nav__mobile" style={{
-          position: "absolute", top: "100%", left: 8, right: 8, marginTop: 8,
-          background: "white", borderRadius: 20, padding: 16,
-          boxShadow: "0 20px 50px -10px rgba(26, 15, 8, 0.25)",
-          display: "flex", flexDirection: "column", gap: 4,
-        }}>
-          {items.map((it) => (
-            <a key={it.href} href={it.href} onClick={() => setMobileOpen(false)} style={{
-              padding: "12px 16px", borderRadius: 12, color: "var(--ink-2)",
-              fontWeight: 600, fontSize: 15,
-            }}>{it.label}</a>
-          ))}
-          <a href="#download" onClick={() => setMobileOpen(false)} className="btn btn--primary" style={{ marginTop: 8 }}>
-            {t.nav.cta} <IcArrowRight size={16} />
-          </a>
-        </div>
-      )}
-    </nav>
+    </>
   );
 }
