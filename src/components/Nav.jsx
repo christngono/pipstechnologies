@@ -40,11 +40,7 @@ export default function Nav() {
       <nav className={"nav" + (scrolled ? " scrolled" : "")}>
         <div className="nav__inner">
           <a href="#top" className="nav__brand" aria-label="Pips Technologies">
-            <span className="nav__brand-logo"><IcLogo size={44} /></span>
-            <span className="nav__brand-text">
-              <span className="a">Pip's</span>
-              <span className="b">TECHNOLOGIES</span>
-            </span>
+            <img src="/assets/pips_logo_tech.png" alt="Pip's Technologies" className="nav__logo-img" />
           </a>
 
           <ul className="nav__links" aria-label="Primary">
@@ -78,12 +74,8 @@ export default function Nav() {
       {/* Fullscreen mobile overlay */}
       <div className={"nav__mobile" + (mobileOpen ? " nav__mobile--open" : "")} aria-hidden={!mobileOpen}>
         <div className="nav__mobile-head">
-          <a href="#top" className="nav__brand nav__brand--light" onClick={close} aria-label="Pips Technologies">
-            <span className="nav__brand-logo"><IcLogo size={40} /></span>
-            <span className="nav__brand-text">
-              <span className="a">Pip's</span>
-              <span className="b">TECHNOLOGIES</span>
-            </span>
+          <a href="#top" className="nav__brand" onClick={close} aria-label="Pips Technologies">
+            <img src="/assets/pips_logo_tech.png" alt="Pip's Technologies" className="nav__logo-img nav__logo-img--light" />
           </a>
 
           {/* Croix pour fermer */}

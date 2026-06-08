@@ -248,25 +248,16 @@ input, textarea, select { font: inherit; color: inherit; background: none; borde
   gap: 24px;
 }
 .nav__brand {
-  display: flex; align-items: center; gap: 12px;
+  display: flex; align-items: center;
 }
-.nav__brand-logo {
-  width: 44px; height: 44px;
+.nav__logo-img {
+  height: 54px;
+  width: auto;
   display: block;
+  object-fit: contain;
 }
-.nav__brand-text { display: flex; flex-direction: column; line-height: 1; }
-.nav__brand-text .a {
-  font-family: var(--font-script);
-  font-style: italic;
-  font-size: 22px;
-  color: var(--cocoa);
-}
-.nav__brand-text .b {
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 0.32em;
-  color: var(--orange-deep);
-  margin-top: 3px;
+.nav__logo-img--light {
+  filter: brightness(0) invert(1);
 }
 .nav__links {
   display: flex;
@@ -360,9 +351,6 @@ input, textarea, select { font: inherit; color: inherit; background: none; borde
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-/* Logo couleurs claires dans l'overlay */
-.nav__brand--light .nav__brand-text .a { color: var(--cream); }
-.nav__brand--light .nav__brand-text .b { color: var(--orange); }
 
 /* Bouton croix (×) */
 .nav__mobile-close {
@@ -1476,15 +1464,12 @@ input, textarea, select { font: inherit; color: inherit; background: none; borde
   padding-bottom: 60px;
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
-.footer__brand { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
-.footer__brand-logo { width: 56px; height: 56px; }
-.footer__brand .a {
-  font-family: var(--font-script); font-style: italic;
-  font-size: 28px; color: white; line-height: 1;
-}
-.footer__brand .b {
-  font-size: 10px; font-weight: 800; letter-spacing: 0.32em;
-  color: var(--orange-2); margin-top: 4px;
+.footer__brand { display: flex; align-items: center; margin-bottom: 24px; }
+.footer__logo-img {
+  height: 72px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1); /* blanc sur fond sombre */
 }
 .footer__about { color: rgba(255,255,255,0.6); font-size: 14px; margin-bottom: 24px; max-width: 320px; line-height: 1.65; }
 .footer__social { display: flex; gap: 10px; }
