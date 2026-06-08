@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLang } from '../hooks.jsx';
-import { IcArrowRight, IcClose, IcLogo, IcMenu } from './Icons.jsx';
-
-// ============================================================
-// PIPS TECHNOLOGIES — Navigation (sticky pill bar, FR/EN toggle)
-// ============================================================
+import { IcArrowRight, IcClose, IcMenu } from './Icons.jsx';
 
 export default function Nav() {
   const { lang, setLang, t } = useLang();
@@ -18,7 +14,6 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
@@ -40,7 +35,13 @@ export default function Nav() {
       <nav className={"nav" + (scrolled ? " scrolled" : "")}>
         <div className="nav__inner">
           <a href="#top" className="nav__brand" aria-label="Pips Technologies">
-            <img src="/assets/pips_logo_tech.png" alt="Pip's Technologies" className="nav__logo-img" />
+            <div className="brand-logo-wrap">
+              <img src="/assets/pips_logo_tech.png" alt="Pip's Technologies" />
+            </div>
+            <span className="nav__brand-text">
+              <span className="a">Pip's</span>
+              <span className="b">TECHNOLOGIES</span>
+            </span>
           </a>
 
           <ul className="nav__links" aria-label="Primary">
@@ -59,7 +60,6 @@ export default function Nav() {
             </a>
           </div>
 
-          {/* Burger — toujours en dernier, poussé à droite */}
           <button
             className="nav__burger"
             aria-label={mobileOpen ? "Fermer le menu" : "Ouvrir le menu"}
@@ -75,15 +75,16 @@ export default function Nav() {
       <div className={"nav__mobile" + (mobileOpen ? " nav__mobile--open" : "")} aria-hidden={!mobileOpen}>
         <div className="nav__mobile-head">
           <a href="#top" className="nav__brand" onClick={close} aria-label="Pips Technologies">
-            <img src="/assets/pips_logo_tech.png" alt="Pip's Technologies" className="nav__logo-img nav__logo-img--light" />
+            <div className="brand-logo-wrap">
+              <img src="/assets/pips_logo_tech.png" alt="Pip's Technologies" />
+            </div>
+            <span className="nav__brand-text nav__brand-text--light">
+              <span className="a">Pip's</span>
+              <span className="b">TECHNOLOGIES</span>
+            </span>
           </a>
 
-          {/* Croix pour fermer */}
-          <button
-            className="nav__mobile-close"
-            onClick={close}
-            aria-label="Fermer le menu"
-          >
+          <button className="nav__mobile-close" onClick={close} aria-label="Fermer le menu">
             <IcClose size={24} />
           </button>
         </div>

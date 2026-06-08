@@ -10,7 +10,13 @@ export default function Footer() {
         <div className="footer__top">
           <div>
             <div className="footer__brand">
-              <img src="/assets/pips_logo_tech.png" alt="Pip's Technologies" className="footer__logo-img" />
+              <div className="brand-logo-wrap brand-logo-wrap--lg">
+                <img src="/assets/pips_logo_tech.png" alt="Pip's Technologies" />
+              </div>
+              <span className="footer__brand-text">
+                <span className="a">Pip's</span>
+                <span className="b">TECHNOLOGIES</span>
+              </span>
             </div>
             <p className="footer__about">{t.footer.about}</p>
             <div className="footer__social">
