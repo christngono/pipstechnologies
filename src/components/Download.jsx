@@ -10,7 +10,7 @@ export default function Download() {
   const { t } = useLang();
 
   const StoreBtn = ({ store, label, action, dark }) => (
-    <a className="app-store" href="#" style={dark ? { background: "var(--cocoa)", color: "white" } : undefined}>
+    <a className="app-store" href="#waitlist" style={dark ? { background: "var(--cocoa)", color: "white" } : undefined}>
       <span className="ico">{store === "apple" ? <IcAppleStore size={20} /> : <IcGooglePlay size={20} />}</span>
       <span className="col">
         <span className="top">{label}</span>
