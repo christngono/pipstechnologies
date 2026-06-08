@@ -15,7 +15,7 @@ export function Drivers() {
         <div className="audience">
           <Reveal scale className="audience__visual">
             <span className="badge"><span className="dot" style={{ background: "var(--lime-deep)" }}></span>{t.drivers.badge}</span>
-            <img src="/assets/food/chicken-portrait.jpg" alt="Driver Pip's Eat" />
+            <img src="/assets/livreur_pips.png" alt="Livreur Pip's Eat" />
             <div className="stat-card lime">
               <div className="icn"><IcZap size={20} /></div>
               <div>
