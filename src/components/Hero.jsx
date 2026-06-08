@@ -11,6 +11,7 @@ export default function Hero() {
   const { t } = useLang();
   const slides = t.hero.slides;
   const images = [
+    "/assets/image_banniere.png",
     "/assets/food/chicken-portrait.jpg",
     "/assets/food/feast-wide.webp",
     "/assets/food/wrap-wide.webp",
