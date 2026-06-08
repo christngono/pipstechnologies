@@ -7,13 +7,13 @@ export default function Partners() {
     <section className="partners">
       <div className="container">
         <div className="partners__title">{t.partners.label}</div>
-        <div className="partners__grid">
-          <Reveal className="partner mtn"><div className="nm">MTN<span className="s">MoMo</span></div></Reveal>
-          <Reveal delay={1} className="partner orange-tel"><div className="nm">orange<span className="s">Money</span></div></Reveal>
-          <Reveal delay={2} className="partner"><div className="nm">Camtel<span className="s">Connectivity</span></div></Reveal>
-          <Reveal delay={3} className="partner"><div className="nm">Express Union<span className="s">Finance</span></div></Reveal>
-          <Reveal delay={4} className="partner"><div className="nm">Afriland<span className="s">First Bank</span></div></Reveal>
-          <Reveal delay={4} className="partner"><div className="nm">CCIMA<span className="s">Douala</span></div></Reveal>
+        <div className="partners__grid partners__grid--payment">
+          <Reveal className="partner partner--img">
+            <img src="/assets/mtnmoney.jpeg" alt="MTN Mobile Money" />
+          </Reveal>
+          <Reveal delay={1} className="partner partner--img">
+            <img src="/assets/orangemoney.png" alt="Orange Money" />
+          </Reveal>
         </div>
       </div>
     </section>
