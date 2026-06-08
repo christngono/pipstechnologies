@@ -2,6 +2,7 @@
 // PIPS TECHNOLOGIES — App root
 // ============================================================
 import { LangProvider } from './i18n.jsx';
+import SplashScreen from './components/SplashScreen.jsx';
 import Nav from './components/Nav.jsx';
 import Hero from './components/Hero.jsx';
 import { TrustBand, CuisineStrip } from './components/Bands.jsx';
@@ -19,6 +20,7 @@ import WhatsAppFloat from './components/WhatsAppFloat.jsx';
 export default function App() {
   return (
     <LangProvider>
+      <SplashScreen />
       <Nav />
       <Hero />
       <TrustBand />
