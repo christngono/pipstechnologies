@@ -21,7 +21,7 @@ export default function SplashScreen() {
       <div className="splash__inner">
         <div className="splash__logo-wrap">
           <div className="splash__logo-circle">
-            <img src="/assets/pips_logo_tech.png" alt="Pip's Technologies" className="splash__logo" />
+            <img src="/assets/logo_pipstechnologies.png" alt="Pip's Technologies" className="splash__logo" />
           </div>
         </div>
       </div>

@@ -36,7 +36,7 @@ export default function Nav() {
         <div className="nav__inner">
           <a href="#top" className="nav__brand" aria-label="Pips Technologies">
             <div className="brand-logo-wrap">
-              <img src="/assets/pips_logo_tech.png" alt="Pip's Technologies" />
+              <img src="/assets/logo_pipstechnologies.png" alt="Pip's Technologies" />
             </div>
             <span className="nav__brand-text">
               <span className="a">Pip's</span>
@@ -76,7 +76,7 @@ export default function Nav() {
         <div className="nav__mobile-head">
           <a href="#top" className="nav__brand" onClick={close} aria-label="Pips Technologies">
             <div className="brand-logo-wrap">
-              <img src="/assets/pips_logo_tech.png" alt="Pip's Technologies" />
+              <img src="/assets/logo_pipstechnologies.png" alt="Pip's Technologies" />
             </div>
             <span className="nav__brand-text nav__brand-text--light">
               <span className="a">Pip's</span>

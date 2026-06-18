@@ -52,7 +52,7 @@ const translations = {
       lead: "Une équipe d'entrepreneurs et d'ingénieurs camerounais convaincus que la tech doit servir les vrais usages locaux — pas l'inverse.",
       values: [
         { num: "01", title: "Innovation locale", desc: "On conçoit pour les réalités du terrain africain, pas pour des marchés lointains. Nos solutions naissent des rues de Douala." },
-        { num: "02", title: "Accessibilité", desc: "Nos produits sont simples, intuitifs et utilisables par tous — même avec une connexion limitée. Mobile Money en natif." },
+        { num: "02", title: "Accessibilité", desc: "Nos produits sont simples, intuitifs et utilisables par tous — même avec une connexion limitée." },
         { num: "03", title: "Impact communautaire", desc: "Chaque app génère des opportunités économiques : restaurateurs visibles, motos qui roulent, familles nourries." },
       ],
       missionPill: "NOTRE MISSION",
@@ -70,7 +70,7 @@ const translations = {
       body3Pre: "Ainsi est né ",
       body3Bold: "Pip's Eat",
       body3Post: " — le premier service de Pips Technologies. Aujourd'hui, nous construisons l'infrastructure numérique de la restauration urbaine camerounaise.",
-      statValue: "2024",
+      statValue: "2026",
       statLabel: "Année de lancement",
     },
     pipseat: {
@@ -93,7 +93,7 @@ const translations = {
       howSub: "De la commande à la livraison, quatre étapes simples — pensées pour fonctionner même quand le réseau ralentit.",
       steps: [
         { num: "01", title: "Choisissez votre plat", desc: "Parcourez les menus des meilleurs restaurants de Douala." },
-        { num: "02", title: "Payez avant de commander", desc: "Règlement sécurisé via MTN ou Orange Mobile Money." },
+        { num: "02", title: "Paiement à la commande", desc: "Règlement sécurisé via MTN ou Orange Mobile Money." },
         { num: "03", title: "Un driver prend la route", desc: "Un livreur partenaire récupère votre commande dès la confirmation." },
         { num: "04", title: "Livraison en 30 minutes", desc: "Votre repas arrive chaud, directement à votre porte." },
       ],
@@ -257,7 +257,7 @@ const translations = {
       lead: "A team of Cameroonian entrepreneurs and engineers convinced that tech should serve real local usage — not the other way around.",
       values: [
         { num: "01", title: "Local innovation", desc: "We design for the realities of the African field, not distant markets. Our solutions are born in the streets of Douala." },
-        { num: "02", title: "Accessibility", desc: "Our products are simple, intuitive, usable by everyone — even on a limited connection. Mobile Money baked in." },
+        { num: "02", title: "Accessibility", desc: "Our products are simple, intuitive, usable by everyone — even on a limited connection." },
         { num: "03", title: "Community impact", desc: "Every app we ship creates economic opportunity: visible restaurants, motorbikes earning, families fed." },
       ],
       missionPill: "OUR MISSION",
@@ -275,7 +275,7 @@ const translations = {
       body3Pre: "That's how ",
       body3Bold: "Pip's Eat",
       body3Post: " was born — the first service from Pips Technologies. Today, we're building the digital infrastructure of Cameroon's urban dining.",
-      statValue: "2024",
+      statValue: "2026",
       statLabel: "Year founded",
     },
     pipseat: {
@@ -299,7 +299,7 @@ const translations = {
       howSub: "From order to delivery, four simple steps — built to work even when the network slows down.",
       steps: [
         { num: "01", title: "Pick your meal", desc: "Browse menus from Douala's best restaurants." },
-        { num: "02", title: "Pay upfront", desc: "Secure payment via MTN or Orange Mobile Money." },
+        { num: "02", title: "Pay on order", desc: "Secure payment via MTN or Orange Mobile Money." },
         { num: "03", title: "A driver hits the road", desc: "A partner rider picks up your order as soon as it's confirmed." },
         { num: "04", title: "Delivered in 30 min", desc: "Your meal arrives hot, right at your door." },
       ],
