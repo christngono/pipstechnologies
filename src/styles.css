@@ -814,7 +814,7 @@ input, textarea, select { font: inherit; color: inherit; background: none; borde
   text-transform: uppercase; color: var(--muted);
 }
 .trust__logo {
-  height: 40px;
+  height: 56px;
   width: auto;
   object-fit: contain;
   mix-blend-mode: multiply; /* fusionne le fond blanc avec le bg blanc */
