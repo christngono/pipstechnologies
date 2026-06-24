@@ -13,8 +13,8 @@ export function TrustBand() {
         <div className="trust__inner">
           <span className="trust__label">{t.trust.label}</span>
           <img
-            src="/assets/logo_saim_officiel.png"
-            alt="Saïm AI"
+            src="/assets/touchpay.png"
+            alt="TouchPay"
             className="trust__logo"
           />
         </div>

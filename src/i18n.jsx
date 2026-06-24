@@ -202,7 +202,7 @@ const translations = {
       cols: [
         { title: "ENTREPRISE", items: ["À propos", "Notre équipe", "Carrières", "Partenaires", "Presse"] },
         { title: "PIP'S EAT", items: ["Comment ça marche", "Devenir Driver", "Devenir Restaurateur", "Télécharger", "FAQ"] },
-        { title: "CONTACT", items: ["support@pipstechnologies.com", "+237 6XX XX XX XX", "Bonapriso, Rue Njo Njo", "Douala, Cameroun", "Mentions légales"] },
+        { title: "CONTACT", items: ["support@pipstechnologies.com", "+237 693 56 99 12", "Bonapriso, Rue Njo Njo", "Douala, Cameroun", "Mentions légales"] },
       ],
       copyright: "© 2026 Pips Technologies. Tous droits réservés.",
       madeIn: "Made with love in Douala, Cameroun",
@@ -408,7 +408,7 @@ const translations = {
       cols: [
         { title: "COMPANY", items: ["About", "Our team", "Careers", "Partners", "Press"] },
         { title: "PIP'S EAT", items: ["How it works", "Become a Driver", "Become a Restaurant", "Download", "FAQ"] },
-        { title: "CONTACT", items: ["support@pipstechnologies.com", "+237 6XX XX XX XX", "Bonapriso, Rue Njo Njo", "Douala, Cameroon", "Legal"] },
+        { title: "CONTACT", items: ["support@pipstechnologies.com", "+237 693 56 99 12", "Bonapriso, Rue Njo Njo", "Douala, Cameroon", "Legal"] },
       ],
       copyright: "© 2026 Pips Technologies. All rights reserved.",
       madeIn: "Made with love in Douala, Cameroon",

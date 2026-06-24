@@ -1824,6 +1824,9 @@ input, textarea, select { font: inherit; color: inherit; background: none; borde
   .nav__links { display: none; }
   .nav__cta { display: none; }
   .nav__burger { display: grid; }
+  .nav__brand-text { display: flex; }
+  .nav__brand-text .a { font-size: 18px; }
+  .nav__brand-text .b { font-size: 8px; letter-spacing: 0.28em; }
   .hero__inner { padding: 60px 20px 100px; }
   .hero__meta { gap: 24px; }
   .benefits { grid-template-columns: 1fr; }
